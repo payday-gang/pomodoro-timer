@@ -1,0 +1,21 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: hsl(0, 0%, 17%);
+  height: 100vh;
+  color: hsl(0, 0%, 80%);
+  font-size: 1.25em;
+}
+button {
+  background-color:rgb(194, 52, 52);
+  color: bisque;
+  width: 200px;
+  height: 50px;
+  font-size: 1.1em;
+  border-radius: 25px;
+  outline: 0;
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.10);
+}
+button:hover{
+  cursor: pointer;
+  background-color: rgba(194, 52, 52, 0.8);
+}
