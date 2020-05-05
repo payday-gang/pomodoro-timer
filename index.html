@@ -9,7 +9,34 @@
 </head>
 
 <body>
+  <main>
+    <div id="settings-section">
+      <div id="pomodoro">
+        <button id="pomodoro-button">Pomodoro</button>
+        <div id="pomodoro-settings" class="settings">
+          <button id="up-pomodoro">▲</button>
+          <p id="pomodoro-time">25</p>
+          <button id="down-pomodoro">▼</button>
+        </div>
+      </div>
+      <div id="break">
+        <button id="break-button">Break</button>
+        <div id="break-settings" class="settings">
+          <button id="up-break">▲</button>
+          <p id="break-time">5</p>
+          <button id="down-break">▼</button>
+        </div>
+      </div>
+    </div>
 
+    <div id="timer"></div>
+
+    <div id="play-buttons">
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+      <button id="reset">Reset</button>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 
