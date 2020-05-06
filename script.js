@@ -52,6 +52,8 @@ function pomodoroMode() {
 
   chosenMode = "pomodoro";
 
+  modeColor();
+
   clearInterval(countDown);
   countDown = false;
 
@@ -63,10 +65,31 @@ function pomodoroMode() {
   console.log("pomodoro");
 }
 
+function modeColor() {
+  switch (chosenMode) {
+    case "break":
+      document.querySelector('link').href = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Small-dark-green-circle.svg/600px-Small-dark-green-circle.svg.png';
+      document.querySelector('main').classList.add('break-color-border');
+      for (button of document.querySelectorAll('button')) {
+        button.classList.add('break-color');
+      }
+      break;
+    case "pomodoro":
+      document.querySelector('link').href = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Red_circle.svg/1200px-Red_circle.svg.png';
+      document.querySelector('main').classList.remove('break-color-border');
+      for (button of document.querySelectorAll('button')) {
+        button.classList.remove('break-color');
+      }
+      break;
+  }
+}
+
 function breakMode() {
   resetButtonText();
 
   chosenMode = "break";
+
+  modeColor();
 
   clearInterval(countDown);
   countDown = false;
