@@ -1,33 +1,70 @@
-const timer = document.querySelector('#timer');
+const timer = document.getElementById("timer");
 
 const playButtons = {
-  start: document.querySelector('#start'),
-  stop: document.querySelector('#stop'),
-  resetButton: document.querySelector('#reset')
+  start: document.getElementById("start"),
+  stop: document.getElementById("stop"),
+  reset: document.getElementById("reset")
 };
 
 let minutes = 25;
-let seconds = `${0}${0}`;                   // innitial timer
-timer.textContent = `${minutes}:${seconds}`;
+let seconds = 0;
+updateTimer();  // innitial time
 
-playButtons.start.onclick = function () {
-  interval = setInterval(function () {
-    seconds -= 1;
-    if (seconds === -1) {
-      minutes -= 1;
-      if (minutes === -1) {
-        clearInterval(interval);
-        return;
-      }
-      console.log("0");
-      seconds = "59";
-    }
-    if (seconds < 10) {
-      seconds = `0${seconds}`;
-    }
-    timer.textContent = `${minutes}:${seconds}`;
-    console.log("d");
-  }, 1000);
-  playButtons.start.disabled = true;
-  playButtons.start.textContent = "Running";
+let countDown;
+
+function updateTimer() {
+  timer.textContent = `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+  document.title = `(${timer.textContent}) Pomodoro Timer`;
 }
+
+playButtons.start.addEventListener("click", function () {
+  playButtons.start.textContent = "Started";
+  playButtons.stop.textContent = "Stop";
+
+  if (timer.textContent === "00:00") {
+    return;
+  }
+  if (!countDown) {
+    countDown = setInterval(function () {
+
+      seconds--;
+      if (seconds === -1) {
+        if (minutes === 0) {
+          clearInterval(countDown);
+          return;
+        }
+        minutes--;
+        seconds = 59;
+      }
+
+      updateTimer();
+    }, 1000);
+  }
+
+  console.log("start");
+});
+
+playButtons.stop.addEventListener("click", function () {
+  playButtons.start.textContent = "Start";
+  playButtons.stop.textContent = "Stopped";
+
+  clearInterval(countDown);
+  countDown = false;
+
+  console.log("stop");
+});
+
+playButtons.reset.addEventListener("click", function () {
+  playButtons.start.textContent = "Start";
+  playButtons.stop.textContent = "Stop";
+
+  clearInterval(countDown);
+  countDown = false;
+
+  minutes = 25;
+  seconds = 0;
+
+  updateTimer();
+
+  console.log("reset");
+});
