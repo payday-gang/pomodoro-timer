@@ -71,3 +71,13 @@ main{
   align-items:center;
   height:25%;
 }
+.break-color {
+  background-color:rgb(44, 206, 44);
+}
+.break-color:hover {
+  background-color:rgba(44, 206, 44, 0.8);
+}
+.break-color-border {
+  box-shadow:2px 2px 25px rgb(44, 206, 44), -2px -2px 15px rgb(44, 206, 44);
+  border:2px solid rgb(44, 206, 44);
+}
