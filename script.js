@@ -116,6 +116,10 @@ settings.pomodoro.upButton.addEventListener("click", function () {
   }
 
   settings.pomodoro.time.textContent++;
+  if (chosenMode === "pomodoro") {
+    minutes = settings.pomodoro.time.textContent;
+    updateTimer();
+  }
 });
 
 settings.pomodoro.downButton.addEventListener("click", function () {
@@ -124,6 +128,10 @@ settings.pomodoro.downButton.addEventListener("click", function () {
   }
 
   settings.pomodoro.time.textContent--;
+  if (chosenMode === "pomodoro") {
+    minutes = settings.pomodoro.time.textContent;
+    updateTimer();
+  }
 });
 
 settings.break.upButton.addEventListener("click", function () {
@@ -132,6 +140,10 @@ settings.break.upButton.addEventListener("click", function () {
   }
 
   settings.break.time.textContent++;
+  if (chosenMode === "break") {
+    minutes = settings.break.time.textContent;
+    updateTimer();
+  }
 });
 
 settings.break.downButton.addEventListener("click", function () {
@@ -140,6 +152,10 @@ settings.break.downButton.addEventListener("click", function () {
   }
 
   settings.break.time.textContent--;
+  if (chosenMode === "break") {
+    minutes = settings.break.time.textContent;
+    updateTimer();
+  }
 });
 
 playButtons.start.addEventListener("click", function () {
