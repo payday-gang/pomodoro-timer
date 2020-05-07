@@ -114,48 +114,32 @@ settings.pomodoro.upButton.addEventListener("click", function () {
   if (settings.pomodoro.time.textContent > 59) {
     return;
   }
-  pomodoroMode();
 
-  minutes = ++settings.pomodoro.time.textContent;
-  seconds = 0;
-
-  updateTimer();
+  settings.pomodoro.time.textContent++;
 });
 
 settings.pomodoro.downButton.addEventListener("click", function () {
   if (settings.pomodoro.time.textContent < 2) {
     return;
   }
-  pomodoroMode();
 
-  minutes = --settings.pomodoro.time.textContent;
-  seconds = 0;
-
-  updateTimer();
+  settings.pomodoro.time.textContent--;
 });
 
 settings.break.upButton.addEventListener("click", function () {
   if (settings.break.time.textContent > 59) {
     return;
   }
-  breakMode();
 
-  minutes = ++settings.break.time.textContent;
-  seconds = 0;
-
-  updateTimer();
+  settings.break.time.textContent++;
 });
 
 settings.break.downButton.addEventListener("click", function () {
   if (settings.break.time.textContent < 2) {
     return;
   }
-  breakMode();
 
-  minutes = --settings.break.time.textContent;
-  seconds = 0;
-
-  updateTimer();
+  settings.break.time.textContent--;
 });
 
 playButtons.start.addEventListener("click", function () {
